@@ -1,4 +1,5 @@
 import time
+import keyboard
 
 from classDay import Day
 from tools import slow_print
@@ -9,19 +10,19 @@ class Engine:
         self.start_day = Day()
         
     def begin_game(self):
-        x = False
-        while x == False:
-            user_input = input("PRESS Y TO BEGIN:\n> ").lower()
-            if user_input == "y":
+        print("PRESS Y TO BEGIN OR S TO SKIP INTRO:")
+        while True:
+            if keyboard.is_pressed('y'):
+                print("You pressed 'Y'.")
                 self.boot_up_game()
-                x = True
-            elif user_input == "s":
+                break
+            elif keyboard.is_pressed('s'):
+                print("You pressed 'S'.")
                 self.skip_intro()
                 self.start_day.run_day()
-                x = True
+                break
             else:
-                print("Incorrect entry! Try again.")
-                x = False
+                continue
     
     def skip_intro(self):
         entities.hero.name = input("Name: ")

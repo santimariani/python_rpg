@@ -152,15 +152,15 @@ class Day:
                 entities.hero.coins -= 5        
                 print("You go to your local gym to get in a friendly sparring match, \npaying the 5 COIN entry fee as you go in.\n")
                 time.sleep(3)
-                print("You see Sean and walk over to him.\n")
+                print("You see Matt and walk over to him.\n")
                 time.sleep(3)
                 print("You don't say a word, as words are not needed.")
                 time.sleep(2)
-                print("This is not Sean's first rodeo.\n")
+                print("This is not Matt's first rodeo.\n")
                 time.sleep(2)
                 print("He is ever ready to go.\n")
                 time.sleep(2)
-                input("To begin match, press ENTER.")
+                input("To begin match, press ENTER.\n")
                 self.fight.start_fight(entities.hero, entities.matt)
                 enough_cash = True
         
@@ -245,7 +245,7 @@ class Day:
         print("Deplete it completely, and you will be unable to perform an attack!")
         print()
         print("The greater your POWER, the greater the possible damage you deal out.")
-        print("The greater your DEFENSE, the greater the possible damage you endure.")
+        print("The greater your DEFENCE, the greater the possible damage you endure.")
         print()
         print("A higher AGILITY will increase your chances of landing a hit,")
         print("while higher REFLEXES will allow you to more easily evade a blow.")

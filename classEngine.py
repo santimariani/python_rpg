@@ -30,7 +30,7 @@ class Engine:
         entities.hero.stamina = int(input("Stamina: "))
         entities.hero.max_stamina = entities.hero.stamina
         entities.hero.power = input("Power: ")
-        entities.hero.defense = int(input("Defense: "))
+        entities.hero.defence = int(input("Defence: "))
         entities.hero.agility = int(input("Agility: "))
         entities.hero.reflexes = int(input("Reflexes: "))
         print()
@@ -206,7 +206,7 @@ class Engine:
         time.sleep(3)
         print("Now let's move on to your SKILLS...")
         time.sleep(2)
-        print("\nYou have 12 POINTS available to spread among: \n\n * POWER & DEFESE for your overall STRENGTH, \n * AGILITY & REFLEXES for your overall SWIFTNESS.")
+        print("\nYou have 12 POINTS available to spread among: \n\n * POWER & DEFENCE for your overall STRENGTH, \n * AGILITY & REFLEXES for your overall SWIFTNESS.")
         print()
         time.sleep(5)
         slow_print("So, then...", 0.1)
@@ -215,20 +215,20 @@ class Engine:
         math_works = 0
         while math_works == False:
             setting_power = int(input("How many do you want for POWER?\n> "))
-            setting_defense = int(input("How many do you want for DEFENCE?\n> "))
+            setting_defence = int(input("How many do you want for DEFENCE?\n> "))
             setting_agility = int(input("How many do you want for AGILITY?\n> "))
             setting_reflexes = int(input("How many do you want for REFLEX?\n> "))
 
-            if setting_power + setting_defense + setting_agility + setting_reflexes > 12:
+            if setting_power + setting_defence + setting_agility + setting_reflexes > 12:
                 print("\nThat's more than 12! Let's try again.")
                 print()
                 math_works = False
-            elif setting_power + setting_defense + setting_agility + setting_reflexes < 12:
+            elif setting_power + setting_defence + setting_agility + setting_reflexes < 12:
                 print("\nThat's less than 12! Let's try again.")
                 print()
                 math_works = False
             else:
-                redo_endurance = input(f"\nYou have chosen:\n\n * {setting_power} for POWER,\n * {setting_defense} for DEFENCE, \n * {setting_agility} for AGILITY,\n * {setting_reflexes} for REFLEXES.\n\n1 — REDO\n2 — ACCEPT!\n> ")
+                redo_endurance = input(f"\nYou have chosen:\n\n * {setting_power} for POWER,\n * {setting_defence} for DEFENCE, \n * {setting_agility} for AGILITY,\n * {setting_reflexes} for REFLEXES.\n\n1 — REDO\n2 — ACCEPT!\n> ")
                 if redo_endurance == "1":
                     math_works = False
                 elif redo_endurance == "2":
@@ -238,7 +238,7 @@ class Engine:
                     math_works = False
          
         entities.hero.power += setting_power
-        entities.hero.defense += setting_defense
+        entities.hero.defence += setting_defence
         entities.hero.agility += setting_agility
         entities.hero.reflexes += setting_reflexes
         
@@ -248,7 +248,7 @@ class Engine:
         print(f" * MAX HEALTH: {entities.hero.max_health}")
         print(f" * MAX STAMINA: {entities.hero.max_stamina}")
         print(f" * POWER: {entities.hero.power}")
-        print(f" * DEFENCE: {entities.hero.defense}")
+        print(f" * DEFENCE: {entities.hero.defence}")
         print(f" * AGILITY: {entities.hero.agility}")
         print(f" * REFLEXES: {entities.hero.reflexes}")
         time.sleep(5)

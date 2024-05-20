@@ -9,7 +9,7 @@ class Fight:
         self.name = True
         
     def start_fight(self, hero, opponent):
-        print("=-•-==-•-==-•-==-•-=\nA NEW MATCH BEGINS!!\n=-•-==-•-==-•-==-•-=\n")
+        print("=-•-==-•-==-•-==-•-=\n*A NEW MATCH BEGINS*\n=-•-==-•-==-•-==-•-=\n")
         time.sleep(2)
         print("The crowd goes WILD!")
         time.sleep(2)
@@ -17,11 +17,11 @@ class Fight:
         print(f"On the left, we have {entities.hero.name}!")
         print()
         entities.hero.print_status()
-        time.sleep(5)
+        time.sleep(3)
         print(f"On the right, we have {entities.matt.name}!")
         print()
         entities.matt.print_status()
-        time.sleep(5)
+        time.sleep(3)
         print("Now... let the match BEGIN!")
         self.run_fight()
 
@@ -75,7 +75,3 @@ class Fight:
                 time.sleep(2)
                 if entities.hero.health <= 0:
                     print("You are knocked out.")
-
-            
-
-

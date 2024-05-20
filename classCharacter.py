@@ -197,36 +197,36 @@ class Hero(Character):
             self.add_stats()
 
     def add_stats(self):
-        self.lvl =+ 1
+        self.lvl += 1
         endurance_question_answered = False
         skill_question_answered = False
         while endurance_question_answered == False:
             answer_endurance = int(input("You have 10 additional endurance points. How would you like to use it?\n\n1 — Increase HEALTH\n2 — Increase STAMINA\n"))
             if answer_endurance == 1:
                 self.max_health += 10
-                print(f"Your endurance grows! Your max HEALTH is now {self.max_health}.\n")
+                print(f"Your endurance grows! Your MAX HEALTH is now {self.max_health}.\n")
                 endurance_question_answered = True
             elif answer_endurance == 2:
                 self.max_stamina += 10
-                print(f"Your endurance grows! Your max STAMINA is now {self.max_stamina}.\n")
+                print(f"Your endurance grows! Your MAX STAMINA is now {self.max_stamina}.\n")
                 endurance_question_answered = True
             else:
                 print("... sayeth what? Try again!\n")
         while skill_question_answered == False:
-            answer_skill = int(input(f"You have 1 additional skill points. How would you like to use it?\n\n1 — Raise POWER\n2 — Raise DEFENCE\n3 - Raise AGILITY\n4 - Raise REFLEXES\n"))
-            if answer_skill == 1:
+            answer_skill = input(f"You have 1 additional skill points. How would you like to use it?\n\n1 — Raise POWER\n2 — Raise DEFENCE\n3 - Raise AGILITY\n4 - Raise REFLEXES\n")
+            if answer_skill == "1":
                 self.power += "1"
                 print(f"Your skill grows! Your POWER is now {self.power}.\n")
                 skill_question_answered = True
-            elif answer_skill == 2:
+            elif answer_skill == "2":
                 self.defence += "1"
                 print(f"Your skill grows! Your DEFENCE is now {self.defense}.\n")
                 skill_question_answered = True
-            elif answer_skill == 3:
+            elif answer_skill == "3":
                 self.agility += "1"
                 print(f"Your skill grows! Your AGILITY is now {self.agility}.\n")
                 skill_question_answered = True
-            elif answer_skill == 4:
+            elif answer_skill == "4":
                 self.reflexes += "1"
                 print(f"Your skill grows! Your REFLEXES are now {self.reflexes}.\n")
                 skill_question_answered = True

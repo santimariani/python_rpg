@@ -3,6 +3,9 @@
 This game was built after five days of in-class Python lessons and then over a weekend. 
 It still needs a tournament mode and a shop plus items.
 
+TO SKIP INTRO AND GO STRAIT TO ADD STATS: 
+Press s during initial screen.
+
 And I'm already curious about other features... and integrating the wheather API and other real life data API's into some of the mechanism.
 
 (Could this be worked as the final deliverable?)

@@ -1,3 +1,7 @@
+# While guarding, have Defense and Reflexes go up  25%.
+# Agility and reflexes combined influence critical blow chances
+
+
 import entities
 import time
 import random
@@ -17,11 +21,11 @@ class Fight:
         print(f"On the left, we have {entities.hero.name}!")
         print()
         entities.hero.print_status()
-        time.sleep(3)
+        time.sleep(2)
         print(f"On the right, we have {entities.matt.name}!")
         print()
         entities.matt.print_status()
-        time.sleep(3)
+        time.sleep(2)
         print("Now... let the match BEGIN!")
         self.run_fight()
 
@@ -32,12 +36,12 @@ class Fight:
             print()
             print("What do you want to do?")
             print()
-            print("1. Throw a punch (25% of 1.5x damage) — 5 SP")
-            print("2. Attempt a high kick (25% of 2x damage) — 10 SP")
+            print("1. Throw a punch (25% chance of 1.5x damage) — 5 SP")
+            print("2. Attempt a high kick (50% chance of 2x damage) — 10 SP")
             print("3. Guard & Heal")
             print("4. Use Item")
             print()
-            user_input = input()
+            user_input = input("> ")
             if user_input == "1":
                 entities.hero.punch(entities.matt)
                 if entities.matt.health <= 0:
@@ -74,4 +78,4 @@ class Fight:
                 entities.matt.punch(entities.hero)
                 time.sleep(2)
                 if entities.hero.health <= 0:
-                    print("You are knocked out.")
+                    print("You are knocked out!\n")

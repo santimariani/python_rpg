@@ -135,6 +135,12 @@ class Engine:
         time.sleep(4)
         print()
         
+        print("When guarding, DEFENCE will influce the HP raised.")
+        time.sleep(3)
+        print("Similarly, REFLEXES will do the same for your SP.")
+        time.sleep(4)
+        print()
+        
         print("You are now at LEVEL 1, and currently have:\n")
         print(" * 25 HP and 25 SP.")
         print(" * 5 points for each of your SKILLS.\n")
@@ -152,7 +158,7 @@ class Engine:
         print()
         print(" * You will be awarded 10 extra ENDURANCE POINTS")
         time.sleep(3)
-        print(" * And 1 extra SKILL POINT")
+        print(" * And 4 extra SKILL POINTS")
         time.sleep(2)
         print()
         print("... to apply as you best see fit!")
@@ -217,7 +223,7 @@ class Engine:
             setting_power = int(input("How many do you want for POWER?\n> "))
             setting_defence = int(input("How many do you want for DEFENCE?\n> "))
             setting_agility = int(input("How many do you want for AGILITY?\n> "))
-            setting_reflexes = int(input("How many do you want for REFLEX?\n> "))
+            setting_reflexes = int(input("How many do you want for REFLEXES?\n> "))
 
             if setting_power + setting_defence + setting_agility + setting_reflexes > 12:
                 print("\nThat's more than 12! Let's try again.")

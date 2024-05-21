@@ -29,18 +29,18 @@ class Character:
     def punch(self, enemy):
         if not self.is_alive():
             return
-        print(f"{self.name} tries to punch {enemy.name}...\n")
+        print(f"{self.name} tries to punch {enemy.name}.\n")
         time.sleep(1)
         if self.stamina < 5:
             print(f"{self.name} is worn out and stumbles to the ground!")
         else:
-            if enemy.avoid_attack(self) == True:
-                print(f"{self.name} misses!\n")
+            if self.attack_hit(enemy) == False:
+                print(f"{enemy.name} dodges!\n")
             else:
                 probability_threshold = 0.25
                 if random.random() < probability_threshold:
                     print(f"{self.name} lands a MASSIVE blow!")
-                    damage_given = (random.randint(int(int(self.power) / 3), int(self.power))) - random.randint(1, int(enemy.defence / 2)) * 1.5
+                    damage_given = int(int(random.randint(int(int(self.power) / 2), int(int(self.power)) * 2)) - int(random.randint(1, int(enemy.defence) / 2)))
                     if damage_given < (int(self.power) / 2):
                         damage_given = int(int(self.power) / 2)
                     damage_given = int(damage_given)
@@ -49,7 +49,7 @@ class Character:
 
                 else:
                     print(f"{self.name} lands a regular blow!")
-                    damage_given = random.randint(1, int(int(self.power) / 3)) - random.randint(1, int(int(enemy.defence) / 2))
+                    damage_given = int(int(random.randint(int(int(self.power) / 2), int(self.power)) * 1) - int(random.randint(1, int(enemy.defence) / 2)))
                     damage_given = int(damage_given)
                     if damage_given < (int(self.power) / 2):
                         damage_given = int(int(self.power) / 2)
@@ -63,18 +63,18 @@ class Character:
     def kick(self, enemy):
         if not self.is_alive():
             return
-        print(f"{self.name} tries to kick {enemy.name}...\n")
+        print(f"{self.name} tries to kick {enemy.name}.\n")
         time.sleep(1)
         if self.stamina < 10:
             print(f"{self.name} is worn out and stumbles to the ground!")
         else:
-            if enemy.avoid_attack(self) == True:
-                print(f"{self.name} misses!\n")
+            if self.attack_hit(enemy) == False:
+                print(f"{enemy.name} dodges!\n")
             else:
                 probability_threshold = 0.50
                 if random.random() < probability_threshold:
                     print(f"{self.name} lands a MASSIVE kick!")
-                    damage_given = (random.randint(int(int(self.power) / 2), int(self.power))) - random.randint(1, int(int(enemy.defence) / 2)) * 2
+                    damage_given = int(int(random.randint(int(int(self.power) / 2), int(int(self.power)) * 3)) - int(random.randint(1, int(int(enemy.defence) / 2))))
                     damage_given = int(damage_given)
                     if damage_given < (int(self.power) / 2):
                         damage_given = int(int(self.power) / 2)
@@ -83,19 +83,19 @@ class Character:
                     enemy.receive_damage(damage_given)
                 else:
                     print(f"{self.name} lands a regular kick!")
-                    damage_given = (random.randint(1, int(int(self.power) / 2)) - random.randint(1, int(int(enemy.defence) / 2)))
+                    damage_given = int(int(random.randint(int(int(self.power) / 2), int(int(self.power)) * 1)) - int(random.randint(1, int(enemy.defence) / 2)))
                     damage_given = int(damage_given)
                     if damage_given < (int(self.power) / 2):
                         damage_given = int(int(self.power) / 2)
                     print(f"{self.name} deals {damage_given} damage.\n")
                     enemy.receive_damage(damage_given)
-        self.stamina -= 10
+        self.stamina -= 15
         if self.stamina < 0:
             self.stamina = 0
         time.sleep(1)
 
-    def avoid_attack(self, enemy):
-        if random.randint(1, int(self.reflexes)) - random.randint(1, int(enemy.agility)) > 0:
+    def attack_hit(self, enemy):
+        if random.randint(int(int(self.agility)/2), int(self.agility)) - random.randint(1, int(int(enemy.reflexes))) > 0:
             return True
         
     def receive_damage(self, points):
@@ -263,8 +263,8 @@ class Hero(Character):
          
         self.power = int(self.power) + int(add_power)
         self.defence = int(self.defence) + int(add_defence)
-        self.agility += int(self.agility) + int(add_agility)
-        self.reflexes += int(self.reflexes) + int(add_reflexes)
+        self.agility = int(self.agility) + int(add_agility)
+        self.reflexes = int(self.reflexes) + int(add_reflexes)
         
         print("\nCONGRATULATIONS! \n\nHere are your upgraded stats:")
         time.sleep(2)

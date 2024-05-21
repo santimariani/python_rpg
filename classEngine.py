@@ -33,6 +33,7 @@ class Engine:
         entities.hero.defence = int(input("Defence: "))
         entities.hero.agility = int(input("Agility: "))
         entities.hero.reflexes = int(input("Reflexes: "))
+        entities.hero.coins = int(input("Coins: "))
         print()
         entities.hero.print_status()
     

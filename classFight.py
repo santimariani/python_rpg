@@ -1,12 +1,10 @@
-# While guarding, have Defense and Reflexes go up  25%.
-# Agility and reflexes combined influence critical blow chances
+# Add: While guarding, have Defense and Reflexes go up  25%.
+# Add: Agility and reflexes combined influence critical blow chances
 
 
 import entities
 import time
 import random
-
-from classCharacter import Hero, Opponent
 
 class Fight:
     def __init__(self):
@@ -18,21 +16,21 @@ class Fight:
         print("The crowd goes WILD!")
         time.sleep(2)
         print()
-        print(f"On the left, we have {entities.hero.name}!")
+        print(f"On the left, we have {hero.name}!")
         print()
-        entities.hero.print_status()
+        hero.print_status()
         time.sleep(2)
-        print(f"On the right, we have {entities.matt.name}!")
+        print(f"On the right, we have {opponent.name}!")
         print()
-        entities.matt.print_status()
+        opponent.print_status()
         time.sleep(2)
         print("Now... let the match BEGIN!")
-        self.run_fight()
+        self.run_fight(hero, opponent)
 
-    def run_fight(self):
-        while entities.matt.health > 0 and entities.hero.health > 0:
-            print("You have %d HP and %d SP." % (entities.hero.health, entities.hero.stamina))
-            print("%s has %d HP and %d SP." % (entities.matt.name, entities.matt.health, entities.matt.stamina))
+    def run_fight(self, hero, opponent):
+        while opponent.health > 0 and hero.health > 0:
+            print("You have %d HP and %d SP." % (hero.health, hero.stamina))
+            print("%s has %d HP and %d SP." % (opponent.name, opponent.health, opponent.stamina))
             print()
             print("What do you want to do?")
             print()
@@ -43,19 +41,19 @@ class Fight:
             print()
             user_input = input("> ")
             if user_input == "1":
-                entities.hero.punch(entities.matt)
-                if entities.matt.health <= 0:
-                    print("%s is knocked out." % entities.matt.name)
-                    entities.matt.is_knockout(entities.hero)
-                    entities.hero.lvl_evolution()
+                hero.punch(opponent)
+                if opponent.health <= 0:
+                    print("%s is knocked out." % opponent.name)
+                    opponent.is_knockout(hero)
+                    hero.lvl_evolution()
             elif user_input == "2":
-                entities.hero.kick(entities.matt)
-                if entities.matt.health <= 0:
-                    print("%s is knocked out." % entities.matt.name)
-                    entities.matt.is_knockout(entities.hero)
-                    entities.hero.lvl_evolution()
+                hero.kick(opponent)
+                if opponent.health <= 0:
+                    print("%s is knocked out." % opponent.name)
+                    opponent.is_knockout(hero)
+                    hero.lvl_evolution()
             elif user_input == "3":
-                entities.hero.do_guard()
+                hero.do_guard()
             elif user_input == "4":
                 pass
     #             if hero.items == False:
@@ -72,10 +70,9 @@ class Fight:
             else:
                 print("Invalid input %r" % user_input)
 
-            if entities.matt.is_alive():
+            if opponent.is_alive():
                 time.sleep(2)
-                # Joker attacks hero
-                entities.matt.punch(entities.hero)
+                opponent.punch(hero)
                 time.sleep(2)
-                if entities.hero.health <= 0:
+                if hero.health <= 0:
                     print("You are knocked out!\n")

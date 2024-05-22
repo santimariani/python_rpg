@@ -105,7 +105,7 @@ class Day:
   4. Exercise at home ------- gain 5 XP (once / day)
  
   5. Go shopping ------------ buy items
-  6. Use item --------------- if applicable
+  6. Examine owned item ----- use if applicable
  
   7. Spar at the gym -------— win 25 XP? (cost - 5 COINS; once / day)
   8. Fight in a tournament--- advance in the leagues? (once / day)

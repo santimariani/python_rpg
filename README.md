@@ -1,4 +1,4 @@
-# 100_Days_To_Victory
+# 100 Days to Victory
 
 <b>TECH</b>: Python • Object Oriented Programming • Terminal • Git • GitHub
 
